@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router'
 import Login from './Components/Log-in/Login'
 import Dashboard from './Components/Dashboard/Dashboard'
+import Signup from './Components/Signup/Signup'
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Login/> }></Route>
       <Route path='/dashboard' element={<Dashboard/> }></Route>
+      <Route path='/signup' element={<Signup/> }></Route>
     </Routes>
     </>
   )
