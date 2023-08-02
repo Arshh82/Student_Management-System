@@ -49,25 +49,25 @@ const Signup = () => {
                       <div class="mb-3">
                           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder='Name' name="name"
                     value={user.name}
-                    onChange={change} />
+                    onChange={change} required />
                       </div>
                       <div class="mb-3">
                           <input type="email" class="form-control" id="exampleFormControlInput1" placeholder='Email' name="email"
                     value={user.email}
-                    onChange={change} />
+                    onChange={change} required />
                       </div>
                       <div class="mb-3">
                           <input type="number" class="form-control" id="exampleFormControlInput1" placeholder='Contact number' name="contact"
                     value={user.contact}
-                    onChange={change} />
+                    onChange={change} required />
                       </div>
                       <div class="mb-3">
                           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder='Password' name="pwd"
                     value={user.pwd}
-                    onChange={change} />
+                    onChange={change} required />
                       </div>
                       <div className="form-check  mb-3">
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required />
                           <label class="form-check-label" for="flexCheckChecked">
                               I agree the Terms and Conditions
                           </label>

@@ -41,7 +41,7 @@ const Login = () => {
                 alert("Invalid user id and password");
               } else {
                 alert("Log In Successfull");
-                navigate("/signup");
+                navigate("/dashboard");
               }
             }
             signup();
