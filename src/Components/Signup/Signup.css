@@ -25,3 +25,16 @@
         /* padding-top: 1rem; */
         /* backdrop-filter: blur(5px); */
     }
+    @media screen and (max-width:425px){
+        .signup-sec{
+            width: 23rem;
+            height: 36rem;
+            margin: .5rem;
+        }
+        .botn{
+            width: 17rem;
+            height: 2.3rem;
+            margin: 1rem;
+        }
+       
+    }

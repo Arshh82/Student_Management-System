@@ -19,7 +19,7 @@ const Login = () => {
       <div className='login-container'>
         <div className='login-containe'>
           <div className='login-heading'>
-            <p className='heading-label'>Sig in</p>
+            <p className='heading-label'>Sign in</p>
           </div>
           <form  onSubmit={(e) => {
             e.preventDefault();

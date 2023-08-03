@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router'
 import Login from './Components/Log-in/Login'
 import Dashboard from './Components/Dashboard/Dashboard'
 import Signup from './Components/Signup/Signup'
+import './App.css'
 
 const App = () => {
   return (

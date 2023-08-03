@@ -3,9 +3,50 @@ import './Dashboard.css'
 
 const Dashboard = () => {
   return (
-    <div>
-      <p>Dashboard</p>
-    </div>
+      <>
+          <div className='dashboard-container'>
+              <div className='dashboard-menubar'>
+                  <div className='menu-container'>
+                      <p>Amber Courses</p><br />
+                      <hr className='hr'></hr>
+                      <div>
+                          <ul className='menu-buttons'>
+                              <a href='#dashboard'><li>
+                                  <button>Dashboard</button>
+                              </li></a>
+                              <a href='#student'><li>
+                                  <button>Students</button>
+                              </li>
+                              </a>
+                              <a href='#courses'><li>
+                                  <button>Courses</button>
+                              </li>
+                              </a>
+                              <a href='#teachers'><li>
+                                  <button>Teachers</button>
+                              </li>
+                              </a>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+
+              <div className='dashboard-content'>
+              <div className='dashboard-sec mb-5' id='dashboard'>
+
+              </div>
+              <div className='student-sec mb-5' id='student'>
+
+              </div>
+              <div className='courses-sec mb-5' id='courses'>
+
+              </div>
+              <div className='teachers-sec mb-5' id='teachers'>
+
+              </div>
+              </div>
+          </div>
+      </>
   );
 }
 
