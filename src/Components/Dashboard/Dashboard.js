@@ -33,9 +33,17 @@ const Dashboard = () => {
 
               <div className='dashboard-content'>
               <div className='dashboard-sec mb-5' id='dashboard'>
+              <div ><p>Dashboard</p></div>
+              <div className='dashboard-count'>
+                <div className='count-box'><p>Total Students</p></div>
+                <div className='count-box'><p>Total Courses</p></div>
+                <div className='count-box'><p>front-End Course</p></div>
+                <div className='count-box'><p>Back-End Course</p></div>
+              </div>
 
               </div>
               <div className='student-sec mb-5' id='student'>
+              
 
               </div>
               <div className='courses-sec mb-5' id='courses'>
