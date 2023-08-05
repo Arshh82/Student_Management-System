@@ -1,5 +1,14 @@
 import React from 'react';
 import './Dashboard.css'
+import { FaUserAlt } from "react-icons/fa";
+import { MdOutlineLibraryBooks } from "react-icons/md";
+import { TiDownload } from "react-icons/ti";
+
+
+
+
+
+
 
 const Dashboard = () => {
   return (
@@ -34,12 +43,47 @@ const Dashboard = () => {
               <div className='dashboard-content'>
               <div className='dashboard-sec mb-5' id='dashboard'>
               <div ><p>Dashboard</p></div>
-              <div className='dashboard-count'>
-                <div className='count-box'><p>Total Students</p></div>
-                <div className='count-box'><p>Total Courses</p></div>
-                <div className='count-box'><p>front-End Course</p></div>
-                <div className='count-box'><p>Back-End Course</p></div>
-              </div>
+                      <div className='dashboard-count'>
+                          <div className='count-box'>
+                              <div className='count-logo' >
+                                  <FaUserAlt />
+                              </div>
+                              <div className='count-discription'>
+                                  <span>Total Students</span><br />
+                                  <span className='data-count'>5</span>
+                              </div>
+                          </div>
+
+                          <div className='count-box'>
+                              <div className='count-logo'  id='logo-b'>
+                                  <MdOutlineLibraryBooks />
+                              </div>
+                              <div className='count-discription'>
+                                  <span>Total Courses</span><br />
+                                  <span className='data-count'>8</span>
+                              </div>
+                          </div>
+
+                          <div className='count-box'>
+                              <div className='count-logo'  id='logo-c'>
+                                  <FaUserAlt />
+                              </div>
+                              <div className='count-discription'>
+                                  <span>front-End Course</span><br />
+                                  <span className='data-count'>8</span>
+                              </div>
+                          </div>
+
+                          <div className='count-box'>
+                              <div className='count-logo' id='logo-d'>
+                                  <TiDownload />
+                              </div>
+                              <div className='count-discription'>
+                                  <span>Back-End Course</span><br />
+                                  <span className='data-count'>8</span>
+                              </div>
+                          </div>
+                      </div>
 
               </div>
               <div className='student-sec mb-5' id='student'>

@@ -56,10 +56,46 @@
 .count-box{
     float: left;
     width: 21%;
-    height: 9rem;
+    height: 7.5rem;
     border-radius: 18px;
     background-color: rgb(255, 255, 255);
     margin: 1rem;
+}
+.count-logo{
+    width: 4.3rem;
+    height: 4.3rem;
+    border-radius: 15px;
+    float: left;
+    margin-left: 0.8rem;
+    margin-top: -1.5rem;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+#logo-b{
+    background-color: rgb(196, 53, 77) ;
+}
+#logo-c{
+    background-color: rgb(133, 180, 56) ;
+}
+#logo-d{
+    background-color: rgb(138, 62, 189) ;
+}
+.count-discription{
+    float: right;
+    color: rgb(97, 97, 97);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: .5rem 0.5rem 0rem 0rem;
+}
+.data-count{
+    float: right;
+    font-size: xx-large;
+    font-weight: 600;
+    color: black;
 }
 
 .student-sec{
