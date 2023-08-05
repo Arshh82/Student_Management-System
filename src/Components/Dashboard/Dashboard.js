@@ -1,5 +1,8 @@
 import React from 'react';
 import './Dashboard.css'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import { FaUserAlt } from "react-icons/fa";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import { TiDownload } from "react-icons/ti";
@@ -10,7 +13,18 @@ import { TiDownload } from "react-icons/ti";
 
 
 
+
 const Dashboard = () => {
+    let [data, updatedata] = useState([]);
+    useEffect(() => {
+        show();
+    })
+    async function show() {
+        var res = await axios.get("https://student-api-34v1.onrender.com/course");
+        // console.log(res)
+        updatedata(res.data);
+    }
+
   return (
       <>
           <div className='dashboard-container'>
@@ -39,7 +53,7 @@ const Dashboard = () => {
                       </div>
                   </div>
               </div>
-
+{/* -------------------------------------------------------------------------------------- */}
               <div className='dashboard-content'>
               <div className='dashboard-sec mb-5' id='dashboard'>
               <div ><p>Dashboard</p></div>
@@ -55,7 +69,7 @@ const Dashboard = () => {
                           </div>
 
                           <div className='count-box'>
-                              <div className='count-logo'  id='logo-b'>
+                              <div className='count-logo' id='logo-b'>
                                   <MdOutlineLibraryBooks />
                               </div>
                               <div className='count-discription'>
@@ -65,7 +79,7 @@ const Dashboard = () => {
                           </div>
 
                           <div className='count-box'>
-                              <div className='count-logo'  id='logo-c'>
+                              <div className='count-logo' id='logo-c'>
                                   <FaUserAlt />
                               </div>
                               <div className='count-discription'>
@@ -84,8 +98,40 @@ const Dashboard = () => {
                               </div>
                           </div>
                       </div>
+{/* ------------------------------------------------------------------------------------------------------------------- */}
+                      <div className='course-detail'>
+                      <div className='course-sec'>
+                      <div>
+                      <span>Our Courses</span><br/>
+                      <span>30 Done this Month</span>
+                      </div>
 
+                              <div>
+                                  <table>
+                                      <tr>
+                                          <th>COURSE NAME</th>
+                                          <th>FEES</th>
+                                          <th>DURATION</th>
+                                      </tr>
+                                      {data.map((v) => {
+                                          return (<tr key={v.id}>
+                                              <td>  <FaUserAlt />{v.name}</td>
+                                              <td>{v.amount}</td>
+                                              <td>{v.duration}</td>
+                                          </tr>)
+                                      })}
+                                  </table>
+                              </div>
+
+                      </div>
+
+                      <div className='activity-heighlight'>
+
+                      </div>
+
+                      </div>
               </div>
+
               <div className='student-sec mb-5' id='student'>
               
 

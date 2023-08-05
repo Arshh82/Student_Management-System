@@ -45,11 +45,6 @@
 .dashboard-count{
     width: 100%;
     height: 11rem;
-    /* background-color: aqua; */
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-around; */
-    
     justify-content: center;
     align-items: center;
 }
@@ -60,6 +55,7 @@
     border-radius: 18px;
     background-color: rgb(255, 255, 255);
     margin: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .count-logo{
     width: 4.3rem;
@@ -74,6 +70,7 @@
     justify-content: center;
     align-items: center;
     font-size: x-large;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 #logo-b{
     background-color: rgb(196, 53, 77) ;
@@ -97,6 +94,38 @@
     font-weight: 600;
     color: black;
 }
+/* --------------------------------------------------------------------- */
+.course-detail{
+    width: 100%;
+    height: 33rem;
+    background-color: red;
+    padding: .5rem;
+}
+.course-sec{
+    width: 55%;
+    height: 85%;
+    float: left;
+    margin: 1rem;
+    padding-top: 1rem;
+    border-radius: 20px;
+    background-color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.activity-heighlight{
+    width: 38%;
+    height: 95%;
+    margin: 1rem;
+    float: left;
+    border-radius: 20px;
+    background-color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+
+
 
 .student-sec{
     width: 100%;
@@ -129,20 +158,40 @@
         margin: .5rem;
       
     }
+  
 
 
 }
+
+@media screen and (max-width:769px){
+    .course-detail{
+        width: 100%;
+        height: 83rem;
+    }
+    .course-sec{
+        width: 95%;
+        height: 28%;
+    }
+    .activity-heighlight{
+        width: 95%;
+        height: 28%;
+    }
+
+}
+
 @media screen and (max-width:580px){
     .dashboard-count{
         width: 100%;
         height: 50rem;
+        padding: 1rem;
 
     }
     .count-box{
-        width: 97%;
+        width: 90%;
         height: 10rem;
         margin: .5rem;
       
     }
+
 
 }
