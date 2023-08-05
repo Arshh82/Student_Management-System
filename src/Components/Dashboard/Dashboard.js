@@ -15,14 +15,17 @@ import { TiDownload } from "react-icons/ti";
 
 
 const Dashboard = () => {
-    let [data, updatedata] = useState([]);
+    let [coursedata, updateCoursedata] = useState([]);
+    let [studentdata, updateStudentdata] = useState([]);
     useEffect(() => {
         show();
     })
     async function show() {
         var res = await axios.get("https://student-api-34v1.onrender.com/course");
-        // console.log(res)
-        updatedata(res.data);
+        var studentres = await axios.get("https://student-api-34v1.onrender.com/students");
+        updateCoursedata(res.data);
+        updateStudentdata(studentres.data);
+        // console.log(studentdata)
     }
 
   return (
@@ -74,7 +77,7 @@ const Dashboard = () => {
                               </div>
                               <div className='count-discription'>
                                   <span>Total Courses</span><br />
-                                  <span className='data-count'>8</span>
+                                  <span className='data-count'>{coursedata.length}</span>
                               </div>
                           </div>
 
@@ -113,7 +116,7 @@ const Dashboard = () => {
                                           <th>FEES</th>
                                           <th>DURATION</th>
                                       </tr>
-                                      {data.map((v) => {
+                                      {coursedata.map((v) => {
                                           return (<tr key={v.id}>
                                               <td>  <FaUserAlt />{v.name}</td>
                                               <td>{v.amount}</td>
