@@ -40,7 +40,7 @@
 .dashboard-sec{
     width: 100%;
     height: 100rem;
-    background-color: blue;
+    /* background-color: blue; */
 }
 .dashboard-count{
     width: 100%;
@@ -98,7 +98,7 @@
 .course-detail{
     width: 100%;
     height: 33rem;
-    background-color: red;
+    /* background-color: red; */
     padding: .5rem;
 }
 .course-sec{
@@ -106,7 +106,7 @@
     height: 85%;
     float: left;
     margin: 1rem;
-    padding-top: 1rem;
+    padding: 1rem;
     border-radius: 20px;
     background-color:white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -115,6 +115,7 @@
 .activity-heighlight{
     width: 38%;
     height: 95%;
+    padding: 1rem;
     margin: 1rem;
     float: left;
     border-radius: 20px;
@@ -122,6 +123,37 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
+.overview-content{
+    width: 10%;
+    height: 85%;
+    float: left;
+    /* background-color: blue; */
+    font-size: large;
+}
+.overview-text{
+    width: 88%;
+    height: 85%;
+    float: right;
+    /* background-color: blueviolet; */
+}
+.overview-info,.overview-infob{
+    width: 100%;
+    height: 3.8rem;
+    /* background-color: aqua; */
+}
+.overview-texth{
+    font-weight: 700;
+}
+.overview-textd{
+    font-weight: 600;
+    color: rgb(129, 129, 129);
+}
+.vl {
+    border-left: 3px solid rgb(82, 82, 82);
+    height: 2.2rem;
+    margin-left: 0.5rem;
+    margin-top: 2px;
+  }
 
 
 
@@ -136,6 +168,7 @@
     width: 100%;
     height: 100vh;
     background-color: rgb(3, 245, 172);
+   
 }
 .teachers-sec{
     width: 100%;
@@ -160,26 +193,86 @@
     }
   
 
-
 }
-
-@media screen and (max-width:769px){
+@media screen and (max-width:929px){
+    .dashboard-sec{
+        width: 100%;
+        height: 140rem;
+    }
     .course-detail{
         width: 100%;
-        height: 83rem;
+        height: 65rem;
     }
     .course-sec{
         width: 95%;
-        height: 28%;
+        height: 40%;
     }
     .activity-heighlight{
         width: 95%;
-        height: 28%;
+        height: 50%;
     }
+    
+
+}
+
+
+@media screen and (max-width:769px){
+    .dashboard-sec{
+        width: 100%;
+        height: 140rem;
+    }
+    .course-detail{
+        width: 100%;
+        height: 65rem;
+    }
+    .course-sec{
+        width: 95%;
+        height: 40%;
+    }
+    .activity-heighlight{
+        width: 95%;
+        height: 50%;
+    }
+
+    .overview-content{
+        width: 10%;
+        height: 80%;
+        /* font-size: large; */
+    }
+    .overview-text{
+        width: 88%;
+        height: 80%;
+    }
+    .overview-info,.overview-infob{
+        width: 100%;
+        height: 2.8rem;
+    }
+    .vl {
+        height: 1.2rem;
+        margin-left: 0.5rem;
+        margin-top: 2px;
+      }
 
 }
 
 @media screen and (max-width:580px){
+    .dashboard-sec{
+        width: 100%;
+        height: 140rem;
+    }
+    .course-sec{
+        width: 95%;
+        height: 40%;
+
+    }
+    .activity-heighlight{
+        width: 95%;
+        height: 50%;
+    }
+    .course-detail{
+        width: 100%;
+        height: 60rem;
+    }
     .dashboard-count{
         width: 100%;
         height: 50rem;

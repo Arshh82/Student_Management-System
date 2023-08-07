@@ -6,6 +6,13 @@ import axios from 'axios';
 import { FaUserAlt } from "react-icons/fa";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import { TiDownload } from "react-icons/ti";
+import { BiUpArrowAlt } from "react-icons/bi";
+import { BsBellFill } from "react-icons/bs";
+import { FaMoneyBill } from "react-icons/fa";
+import { TbMenuOrder } from "react-icons/tb";
+import { BsFillKeyFill,BsCartFill } from "react-icons/bs";
+import { AiOutlineCreditCard } from "react-icons/ai";
+
 
 
 
@@ -103,37 +110,98 @@ const Dashboard = () => {
                       </div>
 {/* ------------------------------------------------------------------------------------------------------------------- */}
                       <div className='course-detail'>
-                      <div className='course-sec'>
-                      <div>
-                      <span>Our Courses</span><br/>
-                      <span>30 Done this Month</span>
-                      </div>
+                          <div className='course-sec'>
+                                  <div>
+                                      <span style={{fontSize:'large'}}>Our Courses</span><br />
+                                      <span>30 Done this Month</span>
+                                  </div>
 
-                              <div>
-                                  <table>
-                                      <tr>
-                                          <th>COURSE NAME</th>
-                                          <th>FEES</th>
-                                          <th>DURATION</th>
-                                      </tr>
-                                      {coursedata.map((v) => {
-                                          return (<tr key={v.id}>
-                                              <td>  <FaUserAlt />{v.name}</td>
-                                              <td>{v.amount}</td>
-                                              <td>{v.duration}</td>
-                                          </tr>)
-                                      })}
-                                  </table>
+                                  <div>
+                                      <table>
+                                          <tr>
+                                              <th>COURSE NAME</th>
+                                              <th>FEES</th>
+                                              <th>DURATION</th>
+                                          </tr>
+                                          {coursedata.map((v) => {
+                                              return (<tr key={v.id}>
+                                                  <td>  <FaUserAlt />{v.name}</td>
+                                                  <td>{v.amount}</td>
+                                                  <td>{v.duration}</td>
+                                              </tr>)
+                                          })}
+                                      </table>
+                                  </div>
+
+                          </div>
+
+                          <div className='activity-heighlight'>
+                              <span style={{fontSize:'larger',fontWeight:'600'}}>Courses overview</span><br />
+                              <BiUpArrowAlt style={{ color: 'green',fontSize:'x-large' }} /><span style={{fontSize:'large' }}> this month</span><br /><br />
+
+
+                              <div className='overview-content'>
+                                  <BsBellFill style={{ color: 'green' }} />
+                                  <div class="vl"></div>
+
+                                  <TbMenuOrder style={{ color: 'red' }} />
+                                  <div class="vl"></div>
+
+                                  <BsCartFill style={{ color: 'blue' }} />
+                                  <div class="vl"></div>
+
+                                  <AiOutlineCreditCard style={{ color: 'orange' }} />
+                                  <div class="vl"></div>
+
+                                  <BsFillKeyFill style={{ color: 'pink' }} />
+                                  <div class="vl"></div>
+
+                                  <FaMoneyBill style={{ color: 'black' }} />
+                                  <div class="vl"></div>
                               </div>
 
-                      </div>
+                              <div className='overview-text'>
+                                  <div className='overview-info mb-1'>
+                                      <span className='overview-texth'>Raesh Sing Rs5400, Paid</span><br />
+                                      <span className='overview-textd'>22 DEC 7:20 PM</span><br /><br />
+                                  </div>
 
-                      <div className='activity-heighlight'>
+                                  <div className='overview-infob mb-1'>
+                                      <span className='overview-texth'>New order #1832412</span><br />
+                                      <span className='overview-textd'>21 DEC 11 PM</span><br /><br />
+                                  </div>
+
+                                  <div className='overview-infob mb-1'>
+                                      <span className='overview-texth'>Server payments for April</span><br />
+                                      <span className='overview-textd'>21 DEC 9:34 PM</span><br /><br />
+                                  </div>
+
+                                  <div className='overview-infob mb-1'>
+                                      <span className='overview-texth'>New card added for order #4395133</span><br />
+                                      <span className='overview-textd'>20 DEC 2:20 AM</span><br /><br />
+                                  </div>
+
+                                  <div className='overview-infob mb-1'>
+                                      <span className='overview-texth'>Unlock packages for development</span><br />
+                                      <span className='overview-textd'>18 DEC 4:54 AM</span><br /><br />
+                                  </div>
+
+                                  <div className='overview-infob mb-1'>
+                                      <span className='overview-texth'>New order #9583120</span><br />
+                                      <span className='overview-textd'>17 DEC</span><br /><br />
+                                  </div>
+
+
+                              </div>
+
+
+
+                          </div>
 
                       </div>
-
-                      </div>
+                      
               </div>
+              <hr></hr>
 
               <div className='student-sec mb-5' id='student'>
               
