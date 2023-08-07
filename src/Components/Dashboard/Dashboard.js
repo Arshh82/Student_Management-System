@@ -2,6 +2,9 @@ import React from 'react';
 import './Dashboard.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { BarChart } from '@mui/x-charts/BarChart';
+import { LineChart } from '@mui/x-charts/LineChart';
+
 
 import { FaUserAlt } from "react-icons/fa";
 import { MdOutlineLibraryBooks } from "react-icons/md";
@@ -16,7 +19,9 @@ import { AiOutlineCreditCard } from "react-icons/ai";
 
 
 
-import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody, } from 'mdb-react-ui-kit';
+import { withTheme } from '@emotion/react';
+
 
 
 
@@ -39,6 +44,11 @@ const Dashboard = () => {
         updateStudentdata(studentres.data);
         // console.log(studentdata)
     }
+    
+
+    
+    
+    
 
   return (
       <>
@@ -216,18 +226,67 @@ const Dashboard = () => {
                                       <span className='overview-texth'>New order #9583120</span><br />
                                       <span className='overview-textd'>17 DEC</span><br /><br />
                                   </div>
-
-
                               </div>
-
-
-
+                          </div>
+                      </div>
+ {/* ------------------------------------------------------------------------------------------------------------ */}
+                      <div className='graph-section'>
+                          <div className='chart-a'>
+                              <BarChart
+                                  xAxis={[
+                                      {
+                                          id: 'barCategories',
+                                          data: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+                                          scaleType: 'band',
+                                      },
+                                  ]}
+                                  series={[
+                                      {
+                                          data: [20, 40, 60, 50, 30, 10, 15],
+                                      },
+                                  ]}
+                                  width={300}
+                                  height={300}
+                              />
                           </div>
 
-                      </div>
+                          <div className='chart-a'>
+                              <LineChart
+                                  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                                  series={[
+                                      {
+                                          data: [2, 5.5, 2, 8.5, 1.5, 5],
+                                      },
+                                  ]}
+                                  width={500}
+                                  height={300}
+                              />
+                          </div>
+                          <div className='chart-a'>
+                              <LineChart
+                                  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                                  series={[
+                                      {
+                                          data: [2, 8.5, 2, 5.5, 6.5, 5],
+                                          area: true,
+                                      },
+                                  ]}
+                                  width={500}
+                                  height={300}
+                              />
+
+                          </div>
                       
+
+
+
+                      
+
+                      </div>
+
               </div>
               <hr></hr>
+{/* ---------------------------------------------------------------------------------------------------------------------               */}
 
               <div className='student-sec mb-5' id='student'>
               

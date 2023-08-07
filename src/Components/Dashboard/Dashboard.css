@@ -108,8 +108,9 @@
 .course-detail{
     width: 100%;
     height: 33rem;
-    /* background-color: red; */
+    background-color: red;
     padding: .5rem;
+
 }
 .course-sec{
     width: 55%;
@@ -165,10 +166,7 @@
     margin-top: 2px;
   }
 
-
-
-
-
+/* -------------------------------------------- */
 .student-sec{
     width: 100%;
     height: 100vh;
@@ -184,6 +182,25 @@
     width: 100%;
     height: 100vh;
     background-color: rgb(16, 219, 9);
+}
+/* --------------------------------------------------------------------------------------------------- */
+
+.graph-section{
+    width: 100%;
+    height: 30rem;
+    background-color: brown;
+}
+.chart-a{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    border-radius: 20px;
+    width: 25rem;
+    height: 16rem;
+    background-color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /* --------------------------------------------------------------- */
 @media screen and (max-width:1200px){
