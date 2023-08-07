@@ -16,6 +16,11 @@ import { AiOutlineCreditCard } from "react-icons/ai";
 
 
 
+import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+
+
+
+
 
 
 
@@ -116,22 +121,43 @@ const Dashboard = () => {
                                       <span>30 Done this Month</span>
                                   </div>
 
-                                  <div>
-                                      <table>
+                              <div className='table-div'>
+                                  <MDBTable align='middle'>
+                                      <MDBTableHead>
                                           <tr>
-                                              <th>COURSE NAME</th>
-                                              <th>FEES</th>
-                                              <th>DURATION</th>
+                                              <th scope='col'>Course Name</th>
+                                              <th scope='col'>Fees</th>
+                                              <th scope='col'>Duration</th>
                                           </tr>
+                                      </MDBTableHead>
+                                      <MDBTableBody>
                                           {coursedata.map((v) => {
                                               return (<tr key={v.id}>
-                                                  <td>  <FaUserAlt />{v.name}</td>
-                                                  <td>{v.amount}</td>
-                                                  <td>{v.duration}</td>
+                                                  <td>
+                                                      <div className='d-flex align-items-center'>
+                                                          <img
+                                                              src='https://mdbootstrap.com/img/new/avatars/8.jpg'
+                                                              alt=''
+                                                              style={{ width: '45px', height: '45px' }}
+                                                              className='rounded-circle'
+                                                          />
+                                                          <div className='ms-3'>
+                                                              <p className='fw-bold mb-1'>{v.name}</p>
+                                                          </div>
+                                                      </div>
+                                                  </td>
+
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.amount}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.duration}</p>
+                                                  </td>
                                               </tr>)
                                           })}
-                                      </table>
-                                  </div>
+                                      </MDBTableBody>
+                                  </MDBTable>
+                              </div>
 
                           </div>
 
@@ -145,19 +171,19 @@ const Dashboard = () => {
                                   <div class="vl"></div>
 
                                   <TbMenuOrder style={{ color: 'red' }} />
-                                  <div class="vl"></div>
+                                  <div className="vl"></div>
 
                                   <BsCartFill style={{ color: 'blue' }} />
-                                  <div class="vl"></div>
+                                  <div className="vl"></div>
 
                                   <AiOutlineCreditCard style={{ color: 'orange' }} />
-                                  <div class="vl"></div>
+                                  <div className="vl"></div>
 
                                   <BsFillKeyFill style={{ color: 'pink' }} />
-                                  <div class="vl"></div>
+                                  <div className="vl"></div>
 
                                   <FaMoneyBill style={{ color: 'black' }} />
-                                  <div class="vl"></div>
+                                  <div className="vl"></div>
                               </div>
 
                               <div className='overview-text'>
