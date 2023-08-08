@@ -232,8 +232,8 @@ const Dashboard = () => {
                       </div>
  {/* ------------------------------------------------------------------------------------------------------------ */}
                       <div className='graph-section'>
-                          <div className='graph-a'>
-                              <div className='chart-a mb-3'>
+                          <div className='graph-a mb-6'>
+                              <div className='chart-a mb-4'>
                                   <BarChart
                                       xAxis={[
                                           {
@@ -259,15 +259,9 @@ const Dashboard = () => {
                               </div>
 
                           </div>
-                          <div className='graph-b'>
 
-                          </div>
-                          <div className='graph-c'>
-
-                          </div>
-                          {/* 
-
-                          <div className='chart-a'>
+                          <div className='graph-b mb-6'>
+                          <div className='chart-a mb-4'>
                               <LineChart
                                   xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
                                   series={[
@@ -275,11 +269,19 @@ const Dashboard = () => {
                                           data: [2, 5.5, 2, 8.5, 1.5, 5],
                                       },
                                   ]}
-                                  width={500}
-                                  height={300}
+                                //   width={500}
+                                //   height={300}
                               />
                           </div>
-                          <div className='chart-a'>
+                          <div className='chart-a-text'>
+                                  <span style={{fontWeight:'600'}}>Daily Sales</span><br />
+                                  <span>(+15%) increase in today sales.</span><br/>
+                                  <BsClockHistory/><span> updated 4 min ago</span>
+                              </div>
+
+                          </div>
+                          <div className='graph-c'>
+                          <div className='chart-a mb-4'>
                               <LineChart
                                   xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
                                   series={[
@@ -288,11 +290,19 @@ const Dashboard = () => {
                                           area: true,
                                       },
                                   ]}
-                                  width={500}
-                                  height={300}
+                                //   width={500}
+                                //   height={300}
                               />
 
-                          </div> */}
+                          </div>
+                          <div className='chart-a-text'>
+                                  <span style={{fontWeight:'600'}}>Completed Tasks</span><br />
+                                  <span>Last Campaign Performance</span><br/>
+                                  <BsClockHistory/><span> just updated</span>
+                              </div>
+
+                          </div>
+                        
                       
 
 
