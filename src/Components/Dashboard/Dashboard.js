@@ -15,6 +15,8 @@ import { FaMoneyBill } from "react-icons/fa";
 import { TbMenuOrder } from "react-icons/tb";
 import { BsFillKeyFill,BsCartFill,BsClockHistory } from "react-icons/bs";
 import { AiOutlineCreditCard } from "react-icons/ai";
+import { RxHamburgerMenu } from "react-icons/rx";
+
 
 
 
@@ -82,7 +84,10 @@ const Dashboard = () => {
 {/* -------------------------------------------------------------------------------------- */}
               <div className='dashboard-content'>
               <div className='dashboard-sec mb-5' id='dashboard'>
-              <div ><p>Dashboard</p></div>
+                      <div className='dashboard-h  mt-2' >
+                          <RxHamburgerMenu style={{ fontSize: 'x-large' }} />
+                          <span className='  ' style={{ float: 'right',fontSize:'larger' }}> Dashboard</span>
+                      </div>
                       <div className='dashboard-count'>
                           <div className='count-box'>
                               <div className='count-logo' >
