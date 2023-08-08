@@ -40,7 +40,7 @@
 .dashboard-sec{
     width: 100%;
     height: 100rem;
-    background-color: blue;
+    /* background-color: blue; */
 }
 .dashboard-count{
     width: 100%;
@@ -266,12 +266,25 @@
     /* background-color: red; */
 }
 /* ------------------------------------------------ */
+/* ---------------------------------------------------------------- */
 .courses-sec{
     width: 100%;
     height: 100vh;
-    background-color: rgb(3, 245, 172);
+    /* background-color: rgb(3, 245, 172); */
    
 }
+.course-table{
+    width: 100%;
+    height: 35rem;
+    overflow: scroll;
+    /* background-color: aqua; */
+}
+
+
+
+
+/* ---------------------------------------------------------------- */
+
 .teachers-sec{
     width: 100%;
     height: 100vh;

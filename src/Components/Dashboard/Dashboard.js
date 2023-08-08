@@ -52,6 +52,7 @@ const Dashboard = () => {
     
 // -----------------------------------------------------------------------------------------------
     const [modal,updatemodal] = useState(false)
+    const [modalb,updatemodalb] = useState(false)
     let [data, updatedata] = useState([]);
     let [product, updateproduct] = useState({
         name: "",
@@ -614,10 +615,163 @@ const Dashboard = () => {
                       </div>
 
                   </div>
-{/* ---------------------------------------------------------------------------------------------------------------------------                   */}
-              <div className='courses-sec mb-5' id='courses'>
+                  <hr></hr>
 
-              </div>
+{/* ---------------------------------------------------------------------------------------------------------------------------                   */}
+                  <div className='courses-sec mb-5' id='courses'>
+                      <div className='student-h  mt-2' >
+                          <span className='mt-2' style={{ float: 'right', fontSize: 'larger' }}> All Courses</span>
+                      </div>
+
+                      <div className='student-addsec'>
+                          <div className='student-add'>
+                              <div className='count-logo' >
+                                  <FaUserAlt />
+                              </div>
+                              <button className='student-btn mt-3' onClick={() => updatemodalb(true)}> + Add Courses</button>
+                          </div>
+                          <div>
+                          <Modal size="lg" isOpen={modalb} toggle={() => updatemodalb(!modalb)}>
+                              <ModalHeader toggle={() => updatemodalb(!modalb)}></ModalHeader>
+                              <ModalBody>
+                                  <center>
+                                      <h3>Course Ragistration</h3>
+                                  </center>
+                                  <br />
+                                  <form
+                                      onSubmit={(e) => {
+                                          e.preventDefault();
+                                          async function addData() {
+                                              var res = await axios.post(
+                                                  "https://student-api-34v1.onrender.com/course",
+                                                  product
+                                              );
+                                              alert("Sucessfully Added Courses");
+                                              updatemodalb(false)
+                                          }
+                                          addData();
+                                      }}
+                                  >
+                                      <Row>
+                                          <Col lg={6}>
+                                              <div>
+                                                  <label htmlFor="name">Course Name</label>
+                                                  <input
+                                                      type="text"
+                                                      name="name"
+                                                      value={product.name}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="EnterName"
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                          <Col lg={6}>
+                                              <div>
+                                                  <label htmlFor="email">Fees</label>
+                                                  <input
+                                                      type="email"
+                                                      name="email"
+                                                      value={product.email}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="Email"
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                      </Row>
+                                      <br />
+                                      <Row>
+                                          <Col lg={6}>
+                                              <div>
+                                                  <label htmlFor="mobile">Duration</label>
+                                                  <input
+                                                      type="number"
+                                                      name="contact"
+                                                      value={product.contact}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="Mobile No."
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                          <Col lg={6}>
+                                              <div>
+                                                  <label htmlFor="address">Category</label>
+                                                  <input
+                                                      type="text"
+                                                      name="address"
+                                                      value={product.address}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="Address"
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                      </Row>
+                                      <br />
+                                     
+                                      <br />
+                                      <center>
+                                          <button className="btn btn-danger " type="submit">
+                                              Sign Up
+                                          </button>
+                                      </center>
+                                  </form>
+                              </ModalBody>
+                          </Modal>
+                          </div>
+                          
+
+
+                      </div>
+                      <div className='course-table'>
+                      <MDBTable align='middle'>
+                                      <MDBTableHead>
+                                          <tr>
+                                              <th scope='col'>Course Name</th>
+                                              <th scope='col'>Fees</th>
+                                              <th scope='col'>Duration</th>
+                                          </tr>
+                                      </MDBTableHead>
+                                      <MDBTableBody>
+                                          {coursedata.map((v) => {
+                                              return (<tr key={v.id}>
+                                                  <td>
+                                                      <div className='d-flex align-items-center'>
+                                                          <img
+                                                              src='https://mdbootstrap.com/img/new/avatars/8.jpg'
+                                                              alt=''
+                                                              style={{ width: '45px', height: '45px' }}
+                                                              className='rounded-circle'
+                                                          />
+                                                          <div className='ms-3'>
+                                                              <p className='fw-bold mb-1'>{v.name}</p>
+                                                          </div>
+                                                      </div>
+                                                  </td>
+
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.amount}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.duration}</p>
+                                                  </td>
+                                              </tr>)
+                                          })}
+                                      </MDBTableBody>
+                                  </MDBTable>
+                      </div>
+
+
+                  </div>
+                  <hr></hr>
+
+                  
               <div className='teachers-sec mb-5' id='teachers'>
 
               </div>
