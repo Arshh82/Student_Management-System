@@ -40,7 +40,7 @@
 .dashboard-sec{
     width: 100%;
     height: 100rem;
-    /* background-color: blue; */
+    background-color: blue;
 }
 .dashboard-count{
     width: 100%;
@@ -172,24 +172,6 @@
     margin-left: 0.5rem;
     margin-top: 2px;
   }
-
-/* -------------------------------------------- */
-.student-sec{
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(3, 136, 245);
-}
-.courses-sec{
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(3, 245, 172);
-   
-}
-.teachers-sec{
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(16, 219, 9);
-}
 /* --------------------------------------------------------------------------------------------------- */
 
 .graph-section{
@@ -231,6 +213,71 @@
 
 
 /* --------------------------------------------------------------- */
+/* -------------------------------------------- */
+.student-sec{
+    width: 100%;
+    height: 100vh;
+    /* background-color: rgb(255, 255, 255); */
+}
+.student-h{
+    width: 97%;
+    height: 3rem;
+    /* background-color: red; */
+    font-size: large;
+    margin-top: 3rem;
+
+}
+.student-addsec{
+    width: 100%;
+    height: 8rem;
+    /* background-color: wheat; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.student-add{
+    width: 95%;
+    height: 5rem;
+    background-color: white;
+    border-radius: 20px 20px 0px 0px ;
+}
+.student-btn{
+    width: 9rem;
+    height: 2.5rem;
+    float: right;
+    border-style: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    font-size: larger;
+    margin-right: 1rem;
+    background-color: rgb(60, 196, 112);
+}
+.student-tablee{
+    width: 100%;
+    height: 40rem;
+    /* background-color: wheat; */
+    overflow: scroll;
+}
+.student-table-head{
+    width: 100%;
+    height: 2.5rem;
+    /* background-color: red; */
+}
+/* ------------------------------------------------ */
+.courses-sec{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(3, 245, 172);
+   
+}
+.teachers-sec{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(16, 219, 9);
+}
+
 @media screen and (max-width:1200px){
     .dashboard-menubar{
         display: none;

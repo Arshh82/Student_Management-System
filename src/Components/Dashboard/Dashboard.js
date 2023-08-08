@@ -18,6 +18,8 @@ import { AiOutlineCreditCard } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 
+import { Modal, ModalBody, Row , Col } from 'reactstrap'; 
+import { ModalHeader } from 'reactstrap';
 
 
 
@@ -48,9 +50,33 @@ const Dashboard = () => {
         // console.log(studentdata)
     }
     
-
+// -----------------------------------------------------------------------------------------------
+    const [modal,updatemodal] = useState(false)
+    let [data, updatedata] = useState([]);
+    let [product, updateproduct] = useState({
+        name: "",
+        email: "",
+        contact: "",
+        address: "",
+        college: "",
+        degree: "",
+        amount: "",
+        paidamount: "",
+        dueamount: "",
+        course: "",
+    });
     
+    function change(e) {
+      updateproduct({ ...product, [e.target.name]: e.target.value });
+    }
+    const [values, setValues] = useState([]);
+  useEffect(() => {
+    fetch("https://student-api-34v1.onrender.com/course")
+      .then((data) => data.json())
+      .then((val) => setValues(val));
+  }, []);
     
+// ----------------------------------------------------------------------------------------------    
     
 
   return (
@@ -307,23 +333,288 @@ const Dashboard = () => {
                               </div>
 
                           </div>
-                        
-                      
-
-
-
-                      
-
                       </div>
-
               </div>
               <hr></hr>
 {/* ---------------------------------------------------------------------------------------------------------------------               */}
 
-              <div className='student-sec mb-5' id='student'>
-              
+                  <div className='student-sec mb-5' id='student'>
 
-              </div>
+                      <div className='student-h  mt-2' >
+                          <span className='mt-2' style={{ float: 'right', fontSize: 'larger' }}> All Students</span>
+                      </div>
+
+                      <div className='student-addsec'>
+                          <div className='student-add'>
+                              <div className='count-logo' >
+                                  <FaUserAlt />
+                              </div>
+                              <button className='student-btn mt-3' onClick={() => updatemodal(true)}> + Add Student</button>
+                          </div>
+                      </div>
+
+                      <div className='student-tablee'>
+                          <div className='student-table-head'>
+                              <div class="input-group flex-nowrap">
+                                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" />
+                              </div>
+
+                          </div>
+                      <MDBTable align='middle'>
+                                      <MDBTableHead>
+                                          <tr>
+                                              <th scope='col'>Student Name</th>
+                                              <th scope='col'>Email</th>
+                                              <th scope='col'>Contact</th>
+                                              <th scope='col'>Address</th>
+                                              <th scope='col'>College</th>
+                                              <th scope='col'>Degree</th>
+                                              <th scope='col'>Course</th>
+                                              <th scope='col'>Fees</th>
+                                              <th scope='col'>Duration</th>
+                                              <th scope='col'>Paid</th>
+                                              
+                                          </tr>
+                                      </MDBTableHead>
+                                      <MDBTableBody>
+                                          {studentdata.map((v) => {
+                                              return (<tr key={v.id}>
+                                                  <td>
+                                                      <div className='d-flex align-items-center'>
+                                                          <img
+                                                              src='https://mdbootstrap.com/img/new/avatars/8.jpg'
+                                                              alt=''
+                                                              style={{ width: '40px', height: '40px' }}
+                                                              className='rounded-circle'
+                                                          />
+                                                          <div className='ms-2'>
+                                                              <p className='fw-bold mb-1'>{v.name}</p>
+                                                          </div>
+                                                      </div>
+                                                  </td>
+
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.email}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.contact}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.address}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.college}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.degree}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.course}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.amount}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.duration}Months</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.paidamount}</p>
+                                                  </td>
+                                              </tr>)
+                                          })}
+                                      </MDBTableBody>
+                                  </MDBTable>
+
+                          <Modal size="lg" isOpen={modal} toggle={() => updatemodal(!modal)}>
+                              <ModalHeader toggle={() => updatemodal(!modal)}></ModalHeader>
+                              <ModalBody>
+                                  <center>
+                                      <h3>Student Ragistration</h3>
+                                  </center>
+                                  <br />
+                                  <form
+                                      onSubmit={(e) => {
+                                          e.preventDefault();
+                                          async function addData() {
+                                              var res = await axios.post(
+                                                  "https://student-api-34v1.onrender.com/students",
+                                                  product
+                                              );
+                                              alert("Sucessfully Added Student");
+                                              updatemodal(false)
+                                          }
+                                          addData();
+                                      }}
+                                  >
+                                      <Row>
+                                          <Col lg={6}>
+                                              <div>
+                                                  <label htmlFor="name">Name</label>
+                                                  <input
+                                                      type="text"
+                                                      name="name"
+                                                      value={product.name}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="EnterName"
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                          <Col lg={6}>
+                                              <div>
+                                                  <label htmlFor="email">Email</label>
+                                                  <input
+                                                      type="email"
+                                                      name="email"
+                                                      value={product.email}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="Email"
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                      </Row>
+                                      <br />
+                                      <Row>
+                                          <Col lg={6}>
+                                              <div>
+                                                  <label htmlFor="mobile">Mobile No.</label>
+                                                  <input
+                                                      type="number"
+                                                      name="contact"
+                                                      value={product.contact}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="Mobile No."
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                          <Col lg={6}>
+                                              <div>
+                                                  <label htmlFor="address">Address</label>
+                                                  <input
+                                                      type="text"
+                                                      name="address"
+                                                      value={product.address}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="Address"
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                      </Row>
+                                      <br />
+                                      <Row>
+                                          <Col lg={6}>
+                                              <div>
+                                                  <label htmlFor="college">College</label>
+                                                  <input
+                                                      type="text"
+                                                      name="college"
+                                                      value={product.college}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="College"
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                          <Col lg={6}>
+                                              <div>
+                                                  <label htmlFor="degree">Degree</label>
+                                                  <input
+                                                      type="text"
+                                                      name="degree"
+                                                      value={product.degree}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="Degree"
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                      </Row>
+                                      <br />
+                                      <Row>
+                                          <Col md={6}>
+                                              <div>
+                                                  <label htmlFor="total_mount">Total Amount</label>
+                                                  <input
+                                                      type="number"
+                                                      name="amount"
+                                                      value={product.amount}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="Total Amount"
+                                                      required
+
+                                                  />
+                                              </div>
+                                          </Col>
+                                          <Col md={6}>
+                                              <div>
+                                                  <label htmlFor="paid_mount">Paid Amount</label>
+                                                  <input
+                                                      type="number"
+                                                      name="paidamount"
+                                                      value={product.paidamount}
+                                                      placeholder="Paid Amount"
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                      </Row>
+                                      <br />
+                                      <Row>
+                                          <Col md={6}>
+                                              <div>
+                                                  <label htmlFor="due_mount">Due Amount</label>
+                                                  <input
+                                                      type="number"
+                                                      name="dueamount"
+                                                      value={product.dueamount}
+                                                      onChange={change}
+                                                      className="form-control"
+                                                      placeholder="Due Amount"
+                                                      required
+                                                  />
+                                              </div>
+                                          </Col>
+                                          <Col md={6}>
+                                              <div>
+                                                  <label htmlFor="Select_Course">Select Course</label>
+                                                  <select onChange={change} value={product.course} name="course" >
+                                                      {values.map((optn, i) => (
+                                                       
+                                                          <option key={i}  >
+                                                              {optn.name}
+                                                          </option>
+                                                          
+                                                      ))}
+                                                  </select>
+                                              </div>
+                                          </Col>
+                                      </Row>
+                                      <br />
+                                      <center>
+                                          <button className="btn btn-danger " type="submit">
+                                              Sign Up
+                                          </button>
+                                      </center>
+                                  </form>
+                              </ModalBody>
+                          </Modal>
+
+                      </div>
+
+                  </div>
+{/* ---------------------------------------------------------------------------------------------------------------------------                   */}
               <div className='courses-sec mb-5' id='courses'>
 
               </div>
