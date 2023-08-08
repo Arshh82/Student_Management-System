@@ -13,8 +13,9 @@ import { BiUpArrowAlt } from "react-icons/bi";
 import { BsBellFill } from "react-icons/bs";
 import { FaMoneyBill } from "react-icons/fa";
 import { TbMenuOrder } from "react-icons/tb";
-import { BsFillKeyFill,BsCartFill } from "react-icons/bs";
+import { BsFillKeyFill,BsCartFill,BsClockHistory } from "react-icons/bs";
 import { AiOutlineCreditCard } from "react-icons/ai";
+
 
 
 
@@ -231,24 +232,40 @@ const Dashboard = () => {
                       </div>
  {/* ------------------------------------------------------------------------------------------------------------ */}
                       <div className='graph-section'>
-                          <div className='chart-a'>
-                              <BarChart
-                                  xAxis={[
-                                      {
-                                          id: 'barCategories',
-                                          data: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-                                          scaleType: 'band',
-                                      },
-                                  ]}
-                                  series={[
-                                      {
-                                          data: [20, 40, 60, 50, 30, 10, 15],
-                                      },
-                                  ]}
-                                  width={300}
-                                  height={300}
-                              />
+                          <div className='graph-a'>
+                              <div className='chart-a mb-3'>
+                                  <BarChart
+                                      xAxis={[
+                                          {
+                                              id: 'barCategories',
+                                              data: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+                                              scaleType: 'band',
+                                          },
+                                      ]}
+                                      series={[
+                                          {
+                                              data: [20, 40, 60, 50, 30, 10, 15],
+                                          },
+                                      ]}
+                                  //   width={300}
+                                  //   height={300}
+                                  />
+
+                              </div>
+                              <div className='chart-a-text'>
+                                  <span style={{fontWeight:'600'}}>Website views</span><br />
+                                  <span>Last Campaign Performance</span><br/>
+                                  <BsClockHistory/><span> campaign sent 2 days ago</span>
+                              </div>
+
                           </div>
+                          <div className='graph-b'>
+
+                          </div>
+                          <div className='graph-c'>
+
+                          </div>
+                          {/* 
 
                           <div className='chart-a'>
                               <LineChart
@@ -275,7 +292,7 @@ const Dashboard = () => {
                                   height={300}
                               />
 
-                          </div>
+                          </div> */}
                       
 
 

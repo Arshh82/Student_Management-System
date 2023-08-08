@@ -108,7 +108,7 @@
 .course-detail{
     width: 100%;
     height: 33rem;
-    background-color: red;
+    /* background-color: red; */
     padding: .5rem;
 
 }
@@ -188,20 +188,40 @@
 .graph-section{
     width: 100%;
     height: 30rem;
-    background-color: brown;
+    /* background-color: brown; */
+    /* padding: 1rem; */
 }
 .chart-a{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: -1.2rem;
+    height: 16rem;
     float: left;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
     border-radius: 20px;
-    width: 25rem;
-    height: 16rem;
-    background-color:white;
+    background-color:rgb(255, 236, 236);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.chart-a-text{
+    float: left;
+    margin-left: 10%;
+
+}
+.graph-a,.graph-b,.graph-c{
+    width: 31.5%;
+    float: left;
+    border-radius: 20px;
+    height: 22rem;
+    margin: .5rem;
+    background-color:rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+
+}
+
+
 /* --------------------------------------------------------------- */
 @media screen and (max-width:1200px){
     .dashboard-menubar{
@@ -218,13 +238,16 @@
         margin: .5rem;
       
     }
+    .graph-a,.graph-b,.graph-c{
+        width: 31.5%;
+    }
   
 
 }
 @media screen and (max-width:929px){
     .dashboard-sec{
         width: 100%;
-        height: 140rem;
+        height: 190rem;
     }
     .course-detail{
         width: 100%;
@@ -238,6 +261,18 @@
         width: 95%;
         height: 50%;
     }
+    .graph-section{
+        /* width: 100%; */
+        height: 70rem;
+    }
+    .graph-a,.graph-b,.graph-c{
+        width: 60%;
+        margin-left: 22vw;
+    }
+    .chart-a{
+        width: 80%;
+        margin-left: 10%;
+    }
     
 
 }
@@ -246,7 +281,7 @@
 @media screen and (max-width:769px){
     .dashboard-sec{
         width: 100%;
-        height: 140rem;
+        height: 180rem;
     }
     .course-detail{
         width: 100%;
@@ -279,13 +314,23 @@
         margin-left: 0.5rem;
         margin-top: 2px;
       }
+      .graph-section{
+        /* width: 100%; */
+        height: 70rem;
+    }
+    .graph-a,.graph-b,.graph-c{
+        width: 85%;
+        margin-left: 3rem;
+
+    }
+    
 
 }
 
 @media screen and (max-width:580px){
     .dashboard-sec{
         width: 100%;
-        height: 140rem;
+        height: 200rem;
     }
     .course-sec{
         width: 95%;
@@ -312,6 +357,16 @@
         margin: .5rem;
       
     }
+    .graph-a,.graph-b,.graph-c{
+        width: 95%;
+        margin-left: 0.6rem;
+
+    }
+    .chart-a{
+        width: 90%;
+        margin-left: 5%;
+    }
+    
 
 
 }
