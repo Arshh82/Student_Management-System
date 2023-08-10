@@ -39,20 +39,24 @@ import { withTheme } from '@emotion/react';
 const Dashboard = () => {
     let [coursedata, updateCoursedata] = useState([]);
     let [studentdata, updateStudentdata] = useState([]);
+    let [teacherdata, updateTeacherdata] = useState([]);
     useEffect(() => {
         show();
     })
     async function show() {
         var res = await axios.get("https://student-api-34v1.onrender.com/course");
         var studentres = await axios.get("https://student-api-34v1.onrender.com/students");
+        var teacherres = await axios.get("https://student-api-34v1.onrender.com/teachers");
         updateCoursedata(res.data);
         updateStudentdata(studentres.data);
+        updateTeacherdata(teacherres.data);
         // console.log(studentdata)
     }
     
 // -----------------------------------------------------------------------------------------------
     const [modal,updatemodal] = useState(false)
     const [modalb,updatemodalb] = useState(false)
+    const [modalc,updatemodalc] = useState(false)
     let [data, updatedata] = useState([]);
     let [product, updateproduct] = useState({
         name: "",
@@ -772,9 +776,258 @@ const Dashboard = () => {
                   <hr></hr>
 
                   
-              <div className='teachers-sec mb-5' id='teachers'>
+                  <div className='teachers-sec mb-5' id='teachers'>
+                      <div className='student-h  mt-2' >
+                          <span className='mt-2' style={{ float: 'right', fontSize: 'larger' }}> Employees</span>
+                      </div>
+                      <div className='student-add'>
+                              <div className='count-logo' >
+                                  <FaUserAlt />
+                              </div>
+                              <button className='student-btn mt-3' onClick={() => updatemodalc(true)}>+ Add Employe</button>
+                          </div>
 
-              </div>
+                          <div>
+                          <Modal size="lg" isOpen={modalc} toggle={() => updatemodalc(!modalc)}>
+                              <ModalHeader toggle={() => updatemodalc(!modalc)}></ModalHeader>
+                              <ModalBody>
+                                  <center>
+                                      <h3>Course Ragistration</h3>
+                                  </center>
+                                  <br />
+                                  <form
+                                      onSubmit={(e) => {
+                                          e.preventDefault();
+                                          async function addData() {
+                                              var res = await axios.post(
+                                                  "https://student-api-34v1.onrender.com/course",
+                                                  product
+                                              );
+                                              alert("Sucessfully Added Courses");
+                                              updatemodalc(false)
+                                          }
+                                          addData();
+                                      }}
+                                  >
+                                      <Row>
+                    <Col lg={6}>
+                      <div>
+                        <label htmlFor="name">Name</label>
+                        <input
+                          type="text"
+                          name="teachername"
+                          onChange={e => setTname(e.target.value)}
+                          className="form-control"
+                          placeholder="EnterName"
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                      <div>
+                        <label htmlFor="id">Id No. </label>
+                        <input
+                          type="number"
+                          name="employeesid"
+                          onChange={e => setTid(e.target.value)}
+                          className="form-control"
+                          placeholder="Id Number "
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  <br />
+                  <Row>
+                    <Col lg={6}>
+                      <div>
+                        <label htmlFor="email">E-Mail</label>
+                        <input
+                          type="email"
+                          name="teacheremail"
+                          onChange={e => setTemail(e.target.value)}
+                          className="form-control"
+                          placeholder="Email Id"
+                        />
+                      </div>
+                  </Col>
+                  <Col lg={6}>
+                    <div>
+                      <label htmlFor="password">Password</label>
+                      <input
+                        type="password"
+                        name="teacherpassword"
+                        onChange={e => setTpwd(e.target.value)}
+                        className="form-control"
+                        placeholder="Enter Password"
+                      />
+                    </div>
+                  </Col>
+                </Row>
+                <br />
+                <Row>
+                  <Col lg={6}>
+                    <div>
+                      <label htmlFor="mobile_no.">Mobile No.</label>
+                      <input
+                      maxLength={10}
+                        type="tel"
+                        name="teachermobile"
+                        onChange={e => setTmob(e.target.value)}
+                        className="form-control"
+                        placeholder="Enter Mobile Number"
+                      />
+                    </div>
+                  </Col>
+                  <Col lg={6}>
+                    <div>
+                      <label htmlFor="join_date">Join Date</label>
+                      <input
+                        type="date"
+                        name="joindate"
+                        onChange={e => setTjdate(e.target.value)}
+                        className="form-control"
+                        placeholder="Join Date"
+                      />
+                    </div>
+                  </Col>
+                </Row>
+                <br />
+                <Row>
+                  <Col md={6}>
+                    <div>
+                      <label htmlFor="education">Education</label>
+                      <input
+                        type="text"
+                        name="education"
+                        onChange={e => setTedu(e.target.value)}
+                        className="form-control"
+                        placeholder="Education"
+                      />
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <div>
+                      <label htmlFor="paid_mount">Work Experiance</label>
+                      <input
+                        type="text"
+                        name="workexp"
+                        placeholder="Work Experiance"
+                        onChange={e => setTexp(e.target.value)}
+                        className="form-control"
+                      />
+                    </div>
+                  </Col>
+                </Row>
+                <br />
+                <Row>
+                  <Col md={6}>
+                    <div>
+                      <label htmlFor="Select_Gender">Select Gender</label>
+                      <select class="form-control" name="gender" onChange={e => setTgen(e.target.value)} >
+                        <option value="O">Other</option>
+                        <option value="F">Female</option>
+                        <option value="M">Male</option>
+                      </select>
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <div>
+                      <label htmlFor="Select_Course">Select Course</label>
+                      <select
+                        onChange={e => setTcour(e.target.value)}
+                        name="scourse"
+                        className="form-control"
+
+                      >
+                        {values.map((optn, i) => (
+                          <option key={i} value={optn.url}>
+                            {optn.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </Col>
+                </Row>
+                <br />
+                <Row>
+                  <Col md={6}>
+                    <div>
+                      <input
+                        type="checkbox"
+                        name="is_active"
+                        value="true"
+                        onChange={e => setTacti(e.target.value)}
+                      />
+                      <br />
+                      <label htmlFor="IsActive">
+                        <span> Is Active</span>
+                      </label>
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <input
+                      type="file"
+                      onChange={e => setFilename(e.target.files[0])}
+                    />
+                  </Col>
+                </Row>
+                                      <br />
+                                     
+                                      <br />
+                                      <center>
+                                          <button className="btn btn-danger " type="submit">
+                                              Sign Up
+                                          </button>
+                                      </center>
+                                  </form>
+                              </ModalBody>
+                          </Modal>
+                          </div>
+
+                          <div className='course-table'>
+                      <MDBTable align='middle'>
+                                      <MDBTableHead>
+                                          <tr>
+                                              <th scope='col'>Course Name</th>
+                                              <th scope='col'>Fees</th>
+                                              <th scope='col'>Duration</th>
+                                          </tr>
+                                      </MDBTableHead>
+                                      <MDBTableBody>
+                                          {teacherdata.map((v) => {
+                                              return (<tr key={v.id}>
+                                                  <td>
+                                                      <div className='d-flex align-items-center'>
+                                                          <img
+                                                              src='https://mdbootstrap.com/img/new/avatars/8.jpg'
+                                                              alt=''
+                                                              style={{ width: '45px', height: '45px' }}
+                                                              className='rounded-circle'
+                                                          />
+                                                          <div className='ms-3'>
+                                                              <p className='fw-bold mb-1'>{v.name}</p>
+                                                          </div>
+                                                      </div>
+                                                  </td>
+
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.amount}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.duration}</p>
+                                                  </td>
+                                              </tr>)
+                                          })}
+                                      </MDBTableBody>
+                                  </MDBTable>
+                      </div>
+
+                      
+
+
+
+
+                  </div>
+                  
               </div>
           </div>
       </>
