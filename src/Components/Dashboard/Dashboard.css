@@ -216,7 +216,7 @@
 /* -------------------------------------------- */
 .student-sec{
     width: 100%;
-    height: 100vh;
+    height: 70rem;
     /* background-color: rgb(255, 255, 255); */
 }
 .student-h{
@@ -269,7 +269,7 @@
 /* ---------------------------------------------------------------- */
 .courses-sec{
     width: 100%;
-    height: 100vh;
+    height: 70rem;
     /* background-color: rgb(3, 245, 172); */
    
 }

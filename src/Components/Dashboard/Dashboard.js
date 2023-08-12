@@ -44,13 +44,13 @@ const Dashboard = () => {
         show();
     })
     async function show() {
-        var res = await axios.get("https://student-api-34v1.onrender.com/course");
+        var courseres = await axios.get("https://student-api-34v1.onrender.com/course");
         var studentres = await axios.get("https://student-api-34v1.onrender.com/students");
         var teacherres = await axios.get("https://student-api-34v1.onrender.com/teachers");
-        updateCoursedata(res.data);
+        updateCoursedata(courseres.data);
         updateStudentdata(studentres.data);
         updateTeacherdata(teacherres.data);
-        // console.log(studentdata)
+        // console.log(coursedata)
     }
     
 // -----------------------------------------------------------------------------------------------
@@ -58,21 +58,50 @@ const Dashboard = () => {
     const [modalb,updatemodalb] = useState(false)
     const [modalc,updatemodalc] = useState(false)
     let [data, updatedata] = useState([]);
-    let [product, updateproduct] = useState({
-        name: "",
-        email: "",
-        contact: "",
-        address: "",
-        college: "",
-        degree: "",
-        amount: "",
-        paidamount: "",
-        dueamount: "",
-        course: "",
+    let [teacher, updateTeacher] = useState({
+        tname: "",
+        temail: "",
+        tpwd: "",
+        tcontact: "",
+        tjoindate: "",
+        teducation: "",
+        texperiance: "",
+        tgender: "",
+        tcourse: "",
+        // timage: "",
     });
+    console.log(teacher)
     
     function change(e) {
-      updateproduct({ ...product, [e.target.name]: e.target.value });
+        updateTeacher({ ...teacher, [e.target.name]: e.target.value });
+    }
+    // -----------------
+    let [student, updateStudent] = useState({
+        sname: "",
+        semail: "",
+        scontact: "",
+        saddress: "",
+        scollege: "",
+        sdegree: "",
+        samount: "",
+        spaidamount: "",
+        sdueamount: "",
+        scourse: "",
+        sCat: "",
+    });
+    
+    function changeb(e) {
+        updateStudent({ ...student, [e.target.name]: e.target.value });
+    }
+    // -------------------------------
+    let [course, updateCourse] = useState({
+        cname: "",
+        camount: "",
+        cduration: "",
+    });
+    
+    function changec(e) {
+        updateCourse({ ...course, [e.target.name]: e.target.value });
     }
     const [values, setValues] = useState([]);
   useEffect(() => {
@@ -126,7 +155,7 @@ const Dashboard = () => {
                               </div>
                               <div className='count-discription'>
                                   <span>Total Students</span><br />
-                                  <span className='data-count'>5</span>
+                                  <span className='data-count'>{studentdata.length}</span>
                               </div>
                           </div>
 
@@ -146,7 +175,7 @@ const Dashboard = () => {
                               </div>
                               <div className='count-discription'>
                                   <span>front-End Course</span><br />
-                                  <span className='data-count'>8</span>
+                                  <span className='data-count'>2</span>
                               </div>
                           </div>
 
@@ -156,7 +185,7 @@ const Dashboard = () => {
                               </div>
                               <div className='count-discription'>
                                   <span>Back-End Course</span><br />
-                                  <span className='data-count'>8</span>
+                                  <span className='data-count'>4</span>
                               </div>
                           </div>
                       </div>
@@ -183,22 +212,22 @@ const Dashboard = () => {
                                                   <td>
                                                       <div className='d-flex align-items-center'>
                                                           <img
-                                                              src='https://mdbootstrap.com/img/new/avatars/8.jpg'
+                                                              src='https://archive.nptel.ac.in/assets/csr_assets/noc_new_logo.png'
                                                               alt=''
                                                               style={{ width: '45px', height: '45px' }}
                                                               className='rounded-circle'
                                                           />
                                                           <div className='ms-3'>
-                                                              <p className='fw-bold mb-1'>{v.name}</p>
+                                                              <p className='fw-bold mb-1'>{v.cname}</p>
                                                           </div>
                                                       </div>
                                                   </td>
 
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.amount}</p>
+                                                      <p className='text-muted mb-0'>{v.camount}</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.duration}</p>
+                                                      <p className='text-muted mb-0'>{v.cduration}</p>
                                                   </td>
                                               </tr>)
                                           })}
@@ -387,43 +416,43 @@ const Dashboard = () => {
                                                   <td>
                                                       <div className='d-flex align-items-center'>
                                                           <img
-                                                              src='https://mdbootstrap.com/img/new/avatars/8.jpg'
+                                                              src='https://www.vhv.rs/dpng/d/156-1566120_png-logo-for-student-transparent-png.png'
                                                               alt=''
                                                               style={{ width: '40px', height: '40px' }}
                                                               className='rounded-circle'
                                                           />
                                                           <div className='ms-2'>
-                                                              <p className='fw-bold mb-1'>{v.name}</p>
+                                                              <p className='fw-bold mb-1'>{v.sname}</p>
                                                           </div>
                                                       </div>
                                                   </td>
 
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.email}</p>
+                                                      <p className='text-muted mb-0'>{v.semail}</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.contact}</p>
+                                                      <p className='text-muted mb-0'>{v.scontact}</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.address}</p>
+                                                      <p className='text-muted mb-0'>{v.saddress}</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.college}</p>
+                                                      <p className='text-muted mb-0'>{v.scollege}</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.degree}</p>
+                                                      <p className='text-muted mb-0'>{v.sdegree}</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.course}</p>
+                                                      <p className='text-muted mb-0'>{v.scourse}</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.amount}</p>
+                                                      <p className='text-muted mb-0'>{v.samount}</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.duration}Months</p>
+                                                      <p className='text-muted mb-0'>{v.sduration}Months</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.paidamount}</p>
+                                                      <p className='text-muted mb-0'>{v.spaidamount}</p>
                                                   </td>
                                               </tr>)
                                           })}
@@ -442,8 +471,8 @@ const Dashboard = () => {
                                           e.preventDefault();
                                           async function addData() {
                                               var res = await axios.post(
-                                                  "https://student-api-34v1.onrender.com/students",
-                                                  product
+                                                  "https://student-api-34v1.onrender.com/students/",
+                                                  student
                                               );
                                               alert("Sucessfully Added Student");
                                               updatemodal(false)
@@ -457,9 +486,9 @@ const Dashboard = () => {
                                                   <label htmlFor="name">Name</label>
                                                   <input
                                                       type="text"
-                                                      name="name"
-                                                      value={product.name}
-                                                      onChange={change}
+                                                      name="sname"
+                                                      value={student.sname}
+                                                      onChange={changeb}
                                                       className="form-control"
                                                       placeholder="EnterName"
                                                       required
@@ -471,9 +500,9 @@ const Dashboard = () => {
                                                   <label htmlFor="email">Email</label>
                                                   <input
                                                       type="email"
-                                                      name="email"
-                                                      value={product.email}
-                                                      onChange={change}
+                                                      name="semail"
+                                                      value={student.semail}
+                                                      onChange={changeb}
                                                       className="form-control"
                                                       placeholder="Email"
                                                       required
@@ -488,9 +517,9 @@ const Dashboard = () => {
                                                   <label htmlFor="mobile">Mobile No.</label>
                                                   <input
                                                       type="number"
-                                                      name="contact"
-                                                      value={product.contact}
-                                                      onChange={change}
+                                                      name="scontact"
+                                                      value={student.scontact}
+                                                      onChange={changeb}
                                                       className="form-control"
                                                       placeholder="Mobile No."
                                                       required
@@ -502,9 +531,9 @@ const Dashboard = () => {
                                                   <label htmlFor="address">Address</label>
                                                   <input
                                                       type="text"
-                                                      name="address"
-                                                      value={product.address}
-                                                      onChange={change}
+                                                      name="saddress"
+                                                      value={student.saddress}
+                                                      onChange={changeb}
                                                       className="form-control"
                                                       placeholder="Address"
                                                       required
@@ -519,9 +548,9 @@ const Dashboard = () => {
                                                   <label htmlFor="college">College</label>
                                                   <input
                                                       type="text"
-                                                      name="college"
-                                                      value={product.college}
-                                                      onChange={change}
+                                                      name="scollege"
+                                                      value={student.scollege}
+                                                      onChange={changeb}
                                                       className="form-control"
                                                       placeholder="College"
                                                       required
@@ -533,9 +562,9 @@ const Dashboard = () => {
                                                   <label htmlFor="degree">Degree</label>
                                                   <input
                                                       type="text"
-                                                      name="degree"
-                                                      value={product.degree}
-                                                      onChange={change}
+                                                      name="sdegree"
+                                                      value={student.sdegree}
+                                                      onChange={changeb}
                                                       className="form-control"
                                                       placeholder="Degree"
                                                       required
@@ -550,9 +579,9 @@ const Dashboard = () => {
                                                   <label htmlFor="total_mount">Total Amount</label>
                                                   <input
                                                       type="number"
-                                                      name="amount"
-                                                      value={product.amount}
-                                                      onChange={change}
+                                                      name="samount"
+                                                      value={student.samount}
+                                                      onChange={changeb}
                                                       className="form-control"
                                                       placeholder="Total Amount"
                                                       required
@@ -565,10 +594,10 @@ const Dashboard = () => {
                                                   <label htmlFor="paid_mount">Paid Amount</label>
                                                   <input
                                                       type="number"
-                                                      name="paidamount"
-                                                      value={product.paidamount}
+                                                      name="spaidamount"
+                                                      value={student.spaidamount}
                                                       placeholder="Paid Amount"
-                                                      onChange={change}
+                                                      onChange={changeb}
                                                       className="form-control"
                                                       required
                                                   />
@@ -582,9 +611,9 @@ const Dashboard = () => {
                                                   <label htmlFor="due_mount">Due Amount</label>
                                                   <input
                                                       type="number"
-                                                      name="dueamount"
-                                                      value={product.dueamount}
-                                                      onChange={change}
+                                                      name="sdueamount"
+                                                      value={student.samount-student.spaidamount}
+                                                      onChange={changeb}
                                                       className="form-control"
                                                       placeholder="Due Amount"
                                                       required
@@ -594,11 +623,11 @@ const Dashboard = () => {
                                           <Col md={6}>
                                               <div>
                                                   <label htmlFor="Select_Course">Select Course</label>
-                                                  <select onChange={change} value={product.course} name="course" >
+                                                  <select class="form-control" onChange={changeb} value={student.scourse} name="scourse" >
                                                       {values.map((optn, i) => (
                                                        
                                                           <option key={i}  >
-                                                              {optn.name}
+                                                              {optn.cname}
                                                           </option>
                                                           
                                                       ))}
@@ -647,8 +676,8 @@ const Dashboard = () => {
                                           e.preventDefault();
                                           async function addData() {
                                               var res = await axios.post(
-                                                  "https://student-api-34v1.onrender.com/course",
-                                                  product
+                                                  "https://student-api-34v1.onrender.com/course/",
+                                                  course
                                               );
                                               alert("Sucessfully Added Courses");
                                               updatemodalb(false)
@@ -662,9 +691,9 @@ const Dashboard = () => {
                                                   <label htmlFor="name">Course Name</label>
                                                   <input
                                                       type="text"
-                                                      name="name"
-                                                      value={product.name}
-                                                      onChange={change}
+                                                      name="cname"
+                                                      value={course.cname}
+                                                      onChange={changec}
                                                       className="form-control"
                                                       placeholder="EnterName"
                                                       required
@@ -675,12 +704,12 @@ const Dashboard = () => {
                                               <div>
                                                   <label htmlFor="email">Fees</label>
                                                   <input
-                                                      type="email"
-                                                      name="email"
-                                                      value={product.email}
-                                                      onChange={change}
+                                                      type="number"
+                                                      name="camount"
+                                                      value={course.camount}
+                                                      onChange={changec}
                                                       className="form-control"
-                                                      placeholder="Email"
+                                                      placeholder="Amount"
                                                       required
                                                   />
                                               </div>
@@ -692,10 +721,10 @@ const Dashboard = () => {
                                               <div>
                                                   <label htmlFor="mobile">Duration</label>
                                                   <input
-                                                      type="number"
-                                                      name="contact"
-                                                      value={product.contact}
-                                                      onChange={change}
+                                                      type="text"
+                                                      name="cduration"
+                                                      value={course.cduration}
+                                                      onChange={changec}
                                                       className="form-control"
                                                       placeholder="Mobile No."
                                                       required
@@ -708,7 +737,7 @@ const Dashboard = () => {
                                                   <input
                                                       type="text"
                                                       name="address"
-                                                      value={product.address}
+                                                      value={course.address}
                                                       onChange={change}
                                                       className="form-control"
                                                       placeholder="Address"
@@ -734,6 +763,9 @@ const Dashboard = () => {
 
                       </div>
                       <div className='course-table'>
+                      <div class="input-group flex-nowrap">
+                                  <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="addon-wrapping" />
+                              </div>
                       <MDBTable align='middle'>
                                       <MDBTableHead>
                                           <tr>
@@ -748,22 +780,22 @@ const Dashboard = () => {
                                                   <td>
                                                       <div className='d-flex align-items-center'>
                                                           <img
-                                                              src='https://mdbootstrap.com/img/new/avatars/8.jpg'
+                                                              src='https://archive.nptel.ac.in/assets/csr_assets/noc_new_logo.png'
                                                               alt=''
                                                               style={{ width: '45px', height: '45px' }}
                                                               className='rounded-circle'
                                                           />
                                                           <div className='ms-3'>
-                                                              <p className='fw-bold mb-1'>{v.name}</p>
+                                                              <p className='fw-bold mb-1'>{v.cname}</p>
                                                           </div>
                                                       </div>
                                                   </td>
 
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.amount}</p>
+                                                      <p className='text-muted mb-0'>{v.camount}</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.duration}</p>
+                                                      <p className='text-muted mb-0'>{v.cduration}</p>
                                                   </td>
                                               </tr>)
                                           })}
@@ -774,17 +806,17 @@ const Dashboard = () => {
 
                   </div>
                   <hr></hr>
-
+{/* ------------------------------------------------------------------------------------- */}
                   
                   <div className='teachers-sec mb-5' id='teachers'>
                       <div className='student-h  mt-2' >
-                          <span className='mt-2' style={{ float: 'right', fontSize: 'larger' }}> Employees</span>
+                          <span className='mt-2' style={{ float: 'right', fontSize: 'larger' }}> Teachers</span>
                       </div>
                       <div className='student-add'>
                               <div className='count-logo' >
                                   <FaUserAlt />
                               </div>
-                              <button className='student-btn mt-3' onClick={() => updatemodalc(true)}>+ Add Employe</button>
+                              <button className='student-btn mt-3' onClick={() => updatemodalc(true)}>+ Add Teacher</button>
                           </div>
 
                           <div>
@@ -800,40 +832,42 @@ const Dashboard = () => {
                                           e.preventDefault();
                                           async function addData() {
                                               var res = await axios.post(
-                                                  "https://student-api-34v1.onrender.com/course",
-                                                  product
+                                                  "https://student-api-34v1.onrender.com/teachers/",
+                                                  teacher
                                               );
-                                              alert("Sucessfully Added Courses");
+                                              alert("Sucessfully Added Teacher");
                                               updatemodalc(false)
                                           }
                                           addData();
                                       }}
                                   >
                                       <Row>
-                    <Col lg={6}>
+                    <Col lg={12}>
                       <div>
                         <label htmlFor="name">Name</label>
                         <input
                           type="text"
-                          name="teachername"
-                          onChange={e => setTname(e.target.value)}
+                          name="tname"
+                          value={teacher.tname}
+                          onChange={change}
                           className="form-control"
                           placeholder="EnterName"
+                          required
                         />
                       </div>
                     </Col>
-                    <Col lg={6}>
+                    {/* <Col lg={6}>
                       <div>
                         <label htmlFor="id">Id No. </label>
                         <input
                           type="number"
                           name="employeesid"
-                          onChange={e => setTid(e.target.value)}
+                          onChange={change}
                           className="form-control"
                           placeholder="Id Number "
                         />
                       </div>
-                    </Col>
+                    </Col> */}
                   </Row>
                   <br />
                   <Row>
@@ -842,10 +876,12 @@ const Dashboard = () => {
                         <label htmlFor="email">E-Mail</label>
                         <input
                           type="email"
-                          name="teacheremail"
-                          onChange={e => setTemail(e.target.value)}
+                          name="temail"
+                          onChange={change}
+                          value={teacher.temail}
                           className="form-control"
                           placeholder="Email Id"
+                          required
                         />
                       </div>
                   </Col>
@@ -854,10 +890,12 @@ const Dashboard = () => {
                       <label htmlFor="password">Password</label>
                       <input
                         type="password"
-                        name="teacherpassword"
-                        onChange={e => setTpwd(e.target.value)}
+                        name="tpwd"
+                        value={teacher.tpwd}
+                        onChange={change}
                         className="form-control"
                         placeholder="Enter Password"
+                        required
                       />
                     </div>
                   </Col>
@@ -869,11 +907,13 @@ const Dashboard = () => {
                       <label htmlFor="mobile_no.">Mobile No.</label>
                       <input
                       maxLength={10}
-                        type="tel"
-                        name="teachermobile"
-                        onChange={e => setTmob(e.target.value)}
+                        type="number" 
+                        name="tcontact"
+                        value={teacher.tcontact}
+                        onChange={change}
                         className="form-control"
                         placeholder="Enter Mobile Number"
+                        required
                       />
                     </div>
                   </Col>
@@ -882,10 +922,12 @@ const Dashboard = () => {
                       <label htmlFor="join_date">Join Date</label>
                       <input
                         type="date"
-                        name="joindate"
-                        onChange={e => setTjdate(e.target.value)}
+                        name="tjoindate"
+                        value={teacher.tjoindate}
+                        onChange={change}
                         className="form-control"
                         placeholder="Join Date"
+                        required
                       />
                     </div>
                   </Col>
@@ -897,10 +939,12 @@ const Dashboard = () => {
                       <label htmlFor="education">Education</label>
                       <input
                         type="text"
-                        name="education"
-                        onChange={e => setTedu(e.target.value)}
+                        name="teducation"
+                        value={teacher.teducation}
+                        onChange={change}
                         className="form-control"
                         placeholder="Education"
+                        required
                       />
                     </div>
                   </Col>
@@ -909,10 +953,12 @@ const Dashboard = () => {
                       <label htmlFor="paid_mount">Work Experiance</label>
                       <input
                         type="text"
-                        name="workexp"
+                        name="texperiance"
                         placeholder="Work Experiance"
-                        onChange={e => setTexp(e.target.value)}
+                        value={teacher.texperiance}
+                        onChange={change}
                         className="form-control"
+                        required
                       />
                     </div>
                   </Col>
@@ -922,54 +968,30 @@ const Dashboard = () => {
                   <Col md={6}>
                     <div>
                       <label htmlFor="Select_Gender">Select Gender</label>
-                      <select class="form-control" name="gender" onChange={e => setTgen(e.target.value)} >
+                      <select class="form-control" name="tgender" value={teacher.tgender}   onChange={change}  >
                         <option value="O">Other</option>
                         <option value="F">Female</option>
                         <option value="M">Male</option>
                       </select>
                     </div>
                   </Col>
-                  <Col md={6}>
-                    <div>
-                      <label htmlFor="Select_Course">Select Course</label>
-                      <select
-                        onChange={e => setTcour(e.target.value)}
-                        name="scourse"
-                        className="form-control"
+                                          <Col md={6}>
+                                              <div>
+                                                  <label htmlFor="Select_Course">Select Course</label>
+                                                  <select class="form-control" onChange={change} value={teacher.tcourse} name="tcourse" >
+                                                      {values.map((optn, i) => (
 
-                      >
-                        {values.map((optn, i) => (
-                          <option key={i} value={optn.url}>
-                            {optn.name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </Col>
+                                                          <option key={i}  >
+                                                              {optn.cname}
+                                                          </option>
+
+                                                      ))}
+                                                  </select>
+                                              </div>
+                                          </Col>
                 </Row>
                 <br />
-                <Row>
-                  <Col md={6}>
-                    <div>
-                      <input
-                        type="checkbox"
-                        name="is_active"
-                        value="true"
-                        onChange={e => setTacti(e.target.value)}
-                      />
-                      <br />
-                      <label htmlFor="IsActive">
-                        <span> Is Active</span>
-                      </label>
-                    </div>
-                  </Col>
-                  <Col md={6}>
-                    <input
-                      type="file"
-                      onChange={e => setFilename(e.target.files[0])}
-                    />
-                  </Col>
-                </Row>
+                
                                       <br />
                                      
                                       <br />
@@ -982,39 +1004,73 @@ const Dashboard = () => {
                               </ModalBody>
                           </Modal>
                           </div>
-
+{/* ------------------------------------------------------------------------------------------------ */}
                           <div className='course-table'>
+                          <div class="input-group flex-nowrap mt-2">
+                                  <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="addon-wrapping" />
+                              </div>
                       <MDBTable align='middle'>
                                       <MDBTableHead>
                                           <tr>
-                                              <th scope='col'>Course Name</th>
-                                              <th scope='col'>Fees</th>
-                                              <th scope='col'>Duration</th>
+                                              <th scope='col'>ID</th>
+                                              <th scope='col'>Teacher Name</th>
+                                              <th scope='col'>Email</th>
+                                              <th scope='col'>Password</th>
+                                              <th scope='col'>Contact</th>
+                                              <th scope='col'>Join Date</th>
+                                              <th scope='col'>Education</th>
+                                              <th scope='col'>Experiance</th>
+                                              <th scope='col'>Gender</th>
+                                              <th scope='col'>Course</th>
                                           </tr>
                                       </MDBTableHead>
                                       <MDBTableBody>
                                           {teacherdata.map((v) => {
                                               return (<tr key={v.id}>
+                                                <td>
+                                                      <p className='text-muted mb-0'>{v.id}</p>
+                                                  </td>
                                                   <td>
                                                       <div className='d-flex align-items-center'>
                                                           <img
-                                                              src='https://mdbootstrap.com/img/new/avatars/8.jpg'
+                                                              src='https://w1.pngwing.com/pngs/213/1021/png-transparent-google-logo-teacher-school-education-student-world-teachers-day-learning-teacher-education.png'
                                                               alt=''
                                                               style={{ width: '45px', height: '45px' }}
                                                               className='rounded-circle'
                                                           />
                                                           <div className='ms-3'>
-                                                              <p className='fw-bold mb-1'>{v.name}</p>
+                                                              <p className='fw-bold mb-1'>{v.tname}</p>
                                                           </div>
                                                       </div>
                                                   </td>
+                                                  
 
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.amount}</p>
+                                                      <p className='text-muted mb-0'>{v.temail}</p>
                                                   </td>
                                                   <td>
-                                                      <p className='text-muted mb-0'>{v.duration}</p>
+                                                      <p className='text-muted mb-0'>{v.tpwd}</p>
                                                   </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.tcontact}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.tjoindate}</p>
+                                                  </td>
+
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.teducation}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.texperiance}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.tgender}</p>
+                                                  </td>
+                                                  <td>
+                                                      <p className='text-muted mb-0'>{v.tcourse}</p>
+                                                  </td>
+                                                  
                                               </tr>)
                                           })}
                                       </MDBTableBody>

@@ -10,7 +10,7 @@ import { useState } from 'react'
 
 const Login = () => {
   let navigate = useNavigate();
-  let [data, updatedata] = useState({ name: "", pwd: "" });
+  let [data, updatedata] = useState({ uname: "", upwd: "" });
   function change(e) {
     updatedata({ ...data, [e.target.name]: e.target.value });
   }
@@ -32,7 +32,7 @@ const Login = () => {
               d = await d.data;
               let c = 0;
               for (var i of d) {
-                if (data.name === i.name && data.pwd === i.pwd) {
+                if (data.uname === i.uname && data.upwd === i.upwd) {
                   c++;
                   break;
                 }
@@ -50,13 +50,13 @@ const Login = () => {
           <div className='login-sec'>
             <div class="mb-2">
               <label for="exampleFormControlInput1" class="form-label">User name</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" value={data.name}  type="name"
-              name="name" onChange={change} />
+              <input type="text" class="form-control" id="exampleFormControlInput1" value={data.uname}  
+              name="uname" onChange={change} />
             </div>
             <div className="mb-4">
               <label for="exampleFormControlInput1" class="form-label">Password</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" value={data.pwd}  type="pwd"
-              name="pwd"   onChange={change}/>
+              <input type="password" class="form-control" id="exampleFormControlInput1" value={data.upwd}  
+              name="upwd"   onChange={change}/>
             </div>
             <div className="mt-3">
               <button type="submit" className="botn ">SIGN IN</button>
