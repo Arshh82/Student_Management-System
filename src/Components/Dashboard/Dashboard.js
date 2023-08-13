@@ -77,7 +77,7 @@ const Dashboard = () => {
         tcourse: "",
         // timage: "",
     });
-    console.log(teacher)
+    // console.log(teacher)
 
     function change(e) {
         updateTeacher({ ...teacher, [e.target.name]: e.target.value });
@@ -158,6 +158,12 @@ const Dashboard = () => {
     return (
         <>
             <div className='dashboard-container'>
+                <div className='sm-sidebar'>
+                    <div className='mobile-sidebar'>
+
+                    </div>
+
+                </div>
             
             
             
