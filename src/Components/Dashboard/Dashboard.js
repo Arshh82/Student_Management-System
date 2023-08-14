@@ -32,7 +32,6 @@ import { ModalHeader } from 'reactstrap';
 
 
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody, } from 'mdb-react-ui-kit';
-import { withTheme } from '@emotion/react';
 
 
 
@@ -193,9 +192,6 @@ const Dashboard = () => {
 
                         </div>
                         : null}
-            
-            
-            
             
                 <div className='dashboard-menubar'>
                     <div className='menu-container'>
@@ -489,7 +485,6 @@ const Dashboard = () => {
                                         <th scope='col'>Fees</th>
                                         <th scope='col'>Duration</th>
                                         <th scope='col'>Paid</th>
-
                                     </tr>
                                 </MDBTableHead>
                                 <MDBTableBody>
@@ -552,10 +547,7 @@ const Dashboard = () => {
                                         onSubmit={(e) => {
                                             e.preventDefault();
                                             async function addData() {
-                                                var res = await axios.post(
-                                                    "https://student-api-34v1.onrender.com/students/",
-                                                    student
-                                                );
+                                                var res = await axios.post("https://student-api-34v1.onrender.com/students/",student);
                                                 alert("Sucessfully Added Student");
                                                 updatemodal(false)
                                             }
