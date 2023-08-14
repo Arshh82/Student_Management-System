@@ -11,7 +11,7 @@ import { MdOutlineLibraryBooks,MdOutlineDashboardCustomize } from "react-icons/m
 import { TiDownload } from "react-icons/ti";
 import { BiUpArrowAlt,BiBookContent } from "react-icons/bi";
 import { BsBellFill } from "react-icons/bs";
-import { FaMoneyBill } from "react-icons/fa";
+import { FaMoneyBill,FaArrowLeft } from "react-icons/fa";
 import { TbMenuOrder } from "react-icons/tb";
 import { BsFillKeyFill, BsCartFill, BsClockHistory } from "react-icons/bs";
 import { AiOutlineCreditCard } from "react-icons/ai";
@@ -155,15 +155,44 @@ const Dashboard = () => {
 
   };
 
+  const [display,setDisplay]=useState(false)
+
     return (
         <>
             <div className='dashboard-container'>
-                <div className='sm-sidebar'>
-                    <div className='mobile-sidebar'>
+                {
+                    display ?
+                        <div className='sm-sidebar'  >
+                            <div className='mobile-sidebar'>
+                                <FaArrowLeft className='close-btn' onClick={() => setDisplay(false)} />
+                                <div>
+                                <p className='side-head mt-4' style={{color:'white'}}>Satyam<br/>Institute</p><br/>
+                        <hr className='hrr'></hr>
+                        <div>
+                            <a href='#dashboard '>
+                                <button className='side-menubtn mb-3' onClick={handleClick,() => setDisplay(false)}
+                                    style={{ backgroundColor: active ? "rgb(216, 0, 108)" : " green" }}><MdOutlineDashboardCustomize className='side-logo' /> Dashboard</button>
+                            </a>
+                            <a href='#student'>
+                                <button className='side-menubtn mb-3' onClick={handleClickb,() => setDisplay(false)}
+                                    style={{ backgroundColor: activeb ? "green" : " rgb(216, 0, 108)" }}><PiStudentFill className='side-logo' /> Students</button>
+                            </a>
+                            <a href='#courses'>
+                                <button className='side-menubtn mb-3' onClick={handleClickc,() => setDisplay(false) }
+                                    style={{ backgroundColor: activec ? "green" : " rgb(216, 0, 108)" }}><BiBookContent className='side-logo' /> Courses</button>
+                            </a>
+                            <a href='#teachers'>
+                                <button className='side-menubtn mb-3' onClick={handleClickd,() => setDisplay(false) }
+                                    style={{ backgroundColor: actived ? "green" : " rgb(216, 0, 108)" }}><LiaChalkboardTeacherSolid className='side-logo' /> Teachers</button>
+                            </a>
 
-                    </div>
+                        </div>
+                                </div>
 
-                </div>
+                            </div>
+
+                        </div>
+                        : null}
             
             
             
@@ -198,7 +227,7 @@ const Dashboard = () => {
                 <div className='dashboard-content'>
                     <div className='dashboard-sec mb-5' id='dashboard'>
                         <div className='dashboard-h  mt-2' >
-                            <RxHamburgerMenu style={{ fontSize: 'x-large' }} className='mobile-toggle' />
+                            <RxHamburgerMenu style={{ fontSize: 'x-large' }} className='mobile-toggle' onClick={() => setDisplay(true)} />
                             <span className='  ' style={{ float: 'right', fontSize: 'larger' }}> Dashboard</span>
                         </div>
                         <div className='dashboard-count'>

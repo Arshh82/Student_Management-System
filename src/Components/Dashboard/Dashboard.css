@@ -6,18 +6,20 @@
     background-color: blueviolet;
 }
 .sm-sidebar{
-    position: absolute;
+    display: none;
+    /* position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.418);
+    background-color: rgba(0, 0, 0, 0.418); */
  
 }
 .mobile-sidebar{
-    position: absolute;
+    display: none;
+    /* position: absolute;
     z-index:999 ;
     width: 45%;
     height: 100%;
-    background-color: blueviolet;
+    background-color: blueviolet; */
 }
 .dashboard-menubar{
     width: 20rem;
@@ -339,8 +341,31 @@
 /* ---------------------------------------------- */
 
 @media screen and (max-width:1200px){
+    .sm-sidebar{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.418);
+     
+    }
+    .mobile-sidebar{
+        display: block;
+        position: absolute;
+        z-index:999 ;
+        width: 23.5%;
+        height: 100%;
+        border-radius: 0px 40px 40px 0px;
+        background-color: rgb(61, 61, 61);
+    }
     .mobile-toggle{
         display: block;
+    }
+    .close-btn{
+        color: rgb(187, 187, 187);
+        font-size: x-large;
+        margin: 1rem;
+        float: right;
     }
     .dashboard-menubar{
         display: none;
@@ -370,6 +395,7 @@
         width: 100%;
         height: 190rem;
     }
+   
     .course-detail{
         width: 100%;
         height: 65rem;
