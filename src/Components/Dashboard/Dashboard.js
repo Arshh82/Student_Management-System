@@ -720,7 +720,7 @@ const Dashboard = () => {
                                         <br />
                                         <center>
                                             <button className="btn btn-danger " type="submit">
-                                                Sign Up
+                                                Proceed To Add
                                             </button>
                                         </center>
                                     </form>
@@ -808,7 +808,7 @@ const Dashboard = () => {
                                                             value={course.cduration}
                                                             onChange={changec}
                                                             className="form-control"
-                                                            placeholder="Mobile No."
+                                                            placeholder="Duration"
                                                             required
                                                         />
                                                     </div>
@@ -822,7 +822,7 @@ const Dashboard = () => {
                                                             value={course.address}
                                                             onChange={change}
                                                             className="form-control"
-                                                            placeholder="Address"
+                                                            placeholder="Category"
                                                             required
                                                         />
                                                     </div>
@@ -833,7 +833,7 @@ const Dashboard = () => {
                                             <br />
                                             <center>
                                                 <button className="btn btn-danger " type="submit">
-                                                    Sign Up
+                                                    Proceed To Add Course
                                                 </button>
                                             </center>
                                         </form>
@@ -1050,7 +1050,7 @@ const Dashboard = () => {
                                             <Col md={6}>
                                                 <div>
                                                     <label htmlFor="Select_Gender">Select Gender</label>
-                                                    <select class="form-control" name="tgender" value={teacher.tgender} onChange={change}  >
+                                                    <select class="form-control" name="tgender" value={teacher.tgender} onChange={change}  required >
                                                         <option value="O">Other</option>
                                                         <option value="F">Female</option>
                                                         <option value="M">Male</option>
@@ -1060,7 +1060,7 @@ const Dashboard = () => {
                                             <Col md={6}>
                                                 <div>
                                                     <label htmlFor="Select_Course">Select Course</label>
-                                                    <select class="form-control" onChange={change} value={teacher.tcourse} name="tcourse" >
+                                                    <select class="form-control" onChange={change} value={teacher.tcourse} name="tcourse" required >
                                                         {values.map((optn, i) => (
 
                                                             <option key={i}  >
@@ -1079,7 +1079,7 @@ const Dashboard = () => {
                                         <br />
                                         <center>
                                             <button className="btn btn-danger " type="submit">
-                                                Sign Up
+                                                Proceed To Register
                                             </button>
                                         </center>
                                     </form>
@@ -1158,14 +1158,7 @@ const Dashboard = () => {
                                 </MDBTableBody>
                             </MDBTable>
                         </div>
-
-
-
-
-
-
                     </div>
-
                 </div>
             </div>
         </>
